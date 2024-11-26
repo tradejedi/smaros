@@ -1,0 +1,24 @@
+{
+    "keys": {
+        "title": {
+            "global_template": "Default Title | {{ siteName }}"
+        },
+        "description": {
+            "global_template": "Default description for everything"
+        }
+    },
+    "models": {
+        "App\\Models\\Post": {
+            "keys": {
+                "title": "Default Post Title | {{ siteName }}",
+                "description": "Post default description"
+            }
+        },
+        "App\\Models\\Product": {
+            "keys": {
+                "title": "Default Product Title",
+                "description": "Some product description"
+            }
+        }
+    }
+}
