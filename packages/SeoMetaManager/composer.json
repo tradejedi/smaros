@@ -1,0 +1,53 @@
+{
+    "name": "coolmacjedi/seometamanager",
+    "description": "Seo Meta tags manager for Laravel (very simple and thin)",
+    "type": "library",
+    "version": "1.0.1",
+    "keywords": ["laravel", "seo", "meta-tags"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "CoolmacJedi\\SeoMetaManager\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "CoolmacJedi",
+            "email": "coolmac.jedi@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.0|^10.0|^11.0",
+        "illuminate/database": "^9.0|^10.0|^11.0",
+        "illuminate/config": "^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0|^10.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-migrations --force",
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-config --force",
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-views --force",
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-storage --force",
+            "@php artisan migrate --force"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-migrations --force",
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-config --force",
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-views --force",
+            "@php artisan vendor:publish --provider=\"CoolmacJedi\\SeoMetaManager\\Providers\\SeoMetaServiceProvider\" --tag=seometamanager-storage --force",
+            "@php artisan migrate --force"
+        ]
+    }
+}
